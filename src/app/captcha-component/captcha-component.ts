@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CaptchaState, CaptchaStateService, Challenge } from '../services/captcha';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +27,6 @@ export class CaptchaComponent implements OnInit,OnDestroy {
   private destroy$ = new Subject<void>();
   private captchaService = inject(CaptchaStateService);
   private route = inject(Router);
-    private cdr = inject(ChangeDetectorRef);
   
   ngOnInit(): void {
     this.captchaService.state$
@@ -40,8 +39,6 @@ export class CaptchaComponent implements OnInit,OnDestroy {
         this.updateCurrentChallenge();
       }
 
-      // Force la détection de changement
-        this.cdr.detectChanges();
         }
         );
   }
