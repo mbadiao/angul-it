@@ -1,0 +1,176 @@
+.result-container {
+  min-height: 100vh;
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.result-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-animation {
+  margin-bottom: 1.5rem;
+}
+
+.checkmark {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.stats-section,
+.achievement-section,
+.feedback-section,
+.certificate-section {
+  margin: 1.5rem 0;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3f51b5;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.achievement-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.badge-icon {
+  font-size: 2rem;
+}
+
+.badge-text h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.badge-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.accomplishments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accomplishments li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.action-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.home-btn {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.retry-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.home-btn:hover {
+  background-color: #303f9f;
+}
+
+.retry-btn:hover {
+  background-color: #d5d5d5;
+}
+
+.certificate {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.certificate-date {
+  font-style: italic;
+  margin-top: 0.5rem;
+}

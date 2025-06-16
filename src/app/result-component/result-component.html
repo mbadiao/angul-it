@@ -1,1 +1,65 @@
-<p>result-component works!</p>
+<div class="result-container" *ngIf="state">
+  <div class="result-card">
+    <div class="success-animation">
+      <div class="checkmark">✓</div>
+    </div>
+
+    <h1>🎉 Félicitations !</h1>
+    <h2>Vous avez prouvé avec succès que vous n'êtes pas un robot !</h2>
+
+    <div class="stats-section">
+      <h3>Statistiques de Vérification</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">{{ state.completedChallenges }} </span>
+          <span class="stat-label">Défis Complétés</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ state.startTime | date }} </span>
+          <span class="stat-label">Heure de Début</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100% </span>
+          <span class="stat-label">Taux de Réussite</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement-section">
+      <h3>🏆 Succès Débloqué</h3>
+      <div class="achievement-badge">
+        <span class="badge-icon">🤖</span>
+        <div class="badge-text">
+          <h4>Humain Vérifié</h4>
+          <p>A complété avec succès tous les défis de vérification</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback-section">
+      <h3>Ce que vous avez accompli :</h3>
+      <ul class="accomplishments">
+        <li>✅ Vous avez démontré des compétences en reconnaissance d’images</li>
+        <li>✅ Vous avez résolu des problèmes mathématiques</li>
+        <li>✅ Vous avez complété la vérification textuelle</li>
+      </ul>
+    </div>
+
+    <div class="action-section">
+      <button class="home-btn" (click)="goHome()">
+        Retour à l’accueil
+      </button>
+      <button class="retry-btn" (click)="retryVerification()">
+        Réessayer
+      </button>
+    </div>
+
+    <div class="certificate-section">
+      <div class="certificate">
+        <h4>🏅 Certificat de Vérification Humaine</h4>
+        <p>Ce document certifie que l'utilisateur a complété avec succès tous les défis de vérification requis et a été vérifié en tant qu'humain.</p>
+        <p class="certificate-date">Complété le : {{ state.endTime | date }}</p>
+      </div>
+    </div>
+  </div>
+</div>

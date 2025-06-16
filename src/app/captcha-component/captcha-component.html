@@ -1,1 +1,70 @@
-<p>captcha-component works!</p>
+<div class="captcha-container" *ngIf="state">
+    <div class="progress-section">
+        <h2>Human Verification Progress</h2>
+        <div class="progress-bar">
+          <div class="progress-fill" 
+               [style.width.%]="(state.completedChallenges / state.totalChallenges) * 100">
+          </div>
+        </div>
+        <p>{{ state.completedChallenges }} of {{ state.totalChallenges }} challenges completed</p>
+      </div>
+      <div class="challenge-section" *ngIf="currentChallenge && !state.isCompleted">
+        <div class="challenge-card">
+          <h3>Challenge {{ currentChallenge.id }}</h3>
+          
+          <!-- Image Challenge -->
+          <div *ngIf="currentChallenge.type === 'image'" class="image-challenge">
+            <p>{{ currentChallenge.question }}</p>
+            <div class="image-grid">
+              <div *ngFor="let option of currentChallenge.options; let i = index" 
+                   class="image-option"
+                   [class.selected]="selectedImages.includes(i + 1)"
+                   (click)="toggleImageSelection(i + 1)">
+                <div class="image-placeholder">{{ option }}</div>
+                <input type="checkbox" 
+                       [checked]="selectedImages.includes(i + 1)"
+                       (change)="toggleImageSelection(i + 1)">
+              </div>
+            </div>
+          </div>
+
+          <!-- Math Challenge -->
+          <div *ngIf="currentChallenge.type === 'math'" class="math-challenge">
+            <p>{{ currentChallenge.question }}</p>
+            <input type="number" 
+                   [(ngModel)]="mathAnswer" 
+                   placeholder="Enter your answer"
+                   class="math-input">
+          </div>
+
+          <!-- Text Challenge -->
+          <div *ngIf="currentChallenge.type === 'text'" class="text-challenge">
+            <p>{{ currentChallenge.question }}</p>
+            <div class="distorted-text">K7mR9</div>
+            <input type="text" 
+                   [(ngModel)]="textAnswer" 
+                   placeholder="Type the characters above"
+                   class="text-input">
+          </div>
+
+          <!-- Submit Button -->
+          <div class="challenge-actions">
+            <button class="submit-btn" 
+                    (click)="submitAnswer()"
+                    [disabled]="!canSubmit()">
+              {{ currentChallenge.completed ? 'Next Challenge' : 'Submit Answer' }}
+            </button>
+          </div>
+
+          <!-- Error Message -->
+          <div class="error-message" *ngIf="showError">
+            ❌ Incorrect answer. Please try again.
+          </div>
+
+          <!-- Success Message -->
+          <div class="success-message" *ngIf="showSuccess">
+            ✅ Correct! Moving to next challenge...
+          </div>
+        </div>
+      </div>
+</div>
