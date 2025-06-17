@@ -38,9 +38,8 @@ export class CaptchaComponent implements OnInit,OnDestroy {
       } else {
         this.updateCurrentChallenge();
       }
-
-        }
-        );
+      }
+    );
   }
           
   ngOnDestroy(): void{

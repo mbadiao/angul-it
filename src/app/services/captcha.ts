@@ -1,6 +1,6 @@
 import { Injectable, Inject,InjectionToken, inject } from '@angular/core';
 import { BehaviorSubject,Observable } from 'rxjs';
-import { BrowserStorageService } from './storage';
+import { BrowserStorageService } from './BrowserStorageService';
 
 export interface Challenge {
   id: number;
